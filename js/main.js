@@ -6,7 +6,7 @@ var Person = Backbone.Model.extend({
         words: 'Hello,World',
         myname: 'Artem',
         myage: 19,
-        myjob: 'lord',
+        myjob: 'dinosaur',
         mywords: 'Hail Satan'
     }
 });
@@ -15,7 +15,7 @@ var PersonView = Backbone.View.extend({
     tagName: 'li',
 
     template: _.template($('#person-id').html()),
-    mytemplate: _.template($('#person-id').html()),
+    mytemplate: _.template($('#person-id2').html()),
 
     initialize: function() {
         this.render();
@@ -23,8 +23,8 @@ var PersonView = Backbone.View.extend({
 
     render: function() {
        // this.$el.html(this.template(this.model.toJSON()) + this.mytemplate(this.model.toJSON()));
-        this.$el.html(this.template(this.model.toJSON()));
-        this.$el.html(this.mytemplate(this.model.toJSON()));
+        this.$el.html(this.template(this.model.toJSON())+this.mytemplate(this.model.toJSON()));
+        //this.$el.html(this.mytemplate(this.model.toJSON()));
         $(document.body).append(this.el);
     }
 });
