@@ -15,7 +15,7 @@ var PersonView = Backbone.View.extend({
     tagName: 'li',
 
     template: _.template($('#person-id').html()),
-   // mytemplate: _.template('<strong></br>Меня зовут <%=myname%>, мне <%=myage%> лет, моя профессия <%=myjob%> и я говорю - <%=mywords%> !</strong>'),
+    mytemplate: _.template($('#person-id').html()),
 
     initialize: function() {
         this.render();
@@ -24,6 +24,7 @@ var PersonView = Backbone.View.extend({
     render: function() {
        // this.$el.html(this.template(this.model.toJSON()) + this.mytemplate(this.model.toJSON()));
         this.$el.html(this.template(this.model.toJSON()));
+        this.$el.html(this.mytemplate(this.model.toJSON()));
         $(document.body).append(this.el);
     }
 });
