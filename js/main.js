@@ -14,8 +14,11 @@ var Person = Backbone.Model.extend({
 var PersonView = Backbone.View.extend({
     tagName: 'li',
 
-    template: _.template($('#person-id').html()),
-    mytemplate: _.template($('#person-id2').html()),
+    //template: _.template($('#person-id').html()),
+    //mytemplate: _.template($('#myperson-id').html()),
+
+    template: '#person-id',
+    //mytemplate: _.template($('#myperson-id').html()),
 
     initialize: function() {
         this.render();
@@ -23,7 +26,8 @@ var PersonView = Backbone.View.extend({
 
     render: function() {
        // this.$el.html(this.template(this.model.toJSON()) + this.mytemplate(this.model.toJSON()));
-        this.$el.html(this.template(this.model.toJSON())+this.mytemplate(this.model.toJSON()));
+        var template = _.template( $(this.template).html());
+        this.$el.html(template(this.model.toJSON()));
         //this.$el.html(this.mytemplate(this.model.toJSON()));
         $(document.body).append(this.el);
     }
