@@ -38,6 +38,9 @@ var PersonView = Backbone.View.extend({
 var person = new Person;
 var personView = new PersonView({model: person});
 
+var person2 = new Person({'name': 'Semen', 'age': '666'});
+var personView2 = new PersonView({model: person2});
+
 //CONSOLE COMMANDS
 //personView;
 //personView.el;
